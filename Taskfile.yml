@@ -1,0 +1,50 @@
+version: '3'
+
+tasks:
+  npm-install:
+    desc: Install dependencies in Docker container
+    cmds:
+      - docker-compose up --build -d
+
+  copy-node-modules:
+    desc: Copy node_modules from Docker volume to local
+    cmds:
+      - |
+        if [ -z "$(docker-compose ps -q app)" ]; then
+          echo "Container is not running. Starting container..."
+          docker-compose up -d
+          sleep 5
+        fi
+        docker cp $(docker-compose ps -q app):/app/node_modules ./
+
+  up:
+    desc: Start containers in background
+    cmds:
+      - docker-compose up -d
+
+  down:
+    desc: Stop and remove containers
+    cmds:
+      - docker-compose down
+
+  test:
+    desc: Run tests
+    cmds:
+      - docker-compose exec app npm run test
+
+  test:watch:
+    desc: Run tests in watch mode
+    cmds:
+      - docker-compose exec app npm run test:watch
+
+  test:coverage:
+    desc: Run tests with coverage
+    cmds:
+      - docker-compose exec app npm run test:coverage
+
+  setup:
+    desc: Setup development environment
+    cmds:
+      - task: npm-install
+      - task: copy-node-modules
+      - task: up
