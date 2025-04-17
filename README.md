@@ -80,10 +80,7 @@ task down
 │   └── shared/           # 共有コード
 │       ├── errors/       # エラー定義
 │       └── utils/        # ユーティリティ
-├── tests/                # テストコード
-│   ├── domain/          # ドメインレイヤーのテスト
-│   ├── application/     # アプリケーションレイヤーのテスト
-│   └── infrastructure/  # インフラストラクチャレイヤーのテスト
+├── prisma/              # Prisma関連ファイル
 ├── dist/                # ビルド成果物
 ├── .eslintrc.json      # ESLint設定
 ├── .prettierrc         # Prettier設定
