@@ -8,7 +8,7 @@ type AddressProps = {
   address3: string;
 };
 
-class Address {
+export class Address {
   private id: string;
   private zipCode: string;
   private prefecture: string;

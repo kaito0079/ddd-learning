@@ -6,7 +6,7 @@ type BankAccountProps = {
   financialInstitutionCode: string;
 };
 
-class BankAccount {
+export class BankAccount {
   private id: string;
   // 口座番号
   private bankAccountNumber: string;

@@ -6,7 +6,7 @@ type UserProps = {
   paymentMethod: string;
 };
 
-class User {
+export class User {
   private id: string;
   private name: string;
   private email: string;
@@ -14,7 +14,7 @@ class User {
   private paymentMethod: string;
 
   constructor(props: UserProps)
-   {
+  {
     this.id = props.id;
     this.name = props.name;
     this.email = props.email;

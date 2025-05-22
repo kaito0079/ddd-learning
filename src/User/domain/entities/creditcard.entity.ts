@@ -3,7 +3,7 @@ type CreditCardProps = {
   lastFourDigits: string;
 };
 
-class CreditCard {
+export class CreditCard {
   private id: string;
   private lastFourDigits: string;
 
